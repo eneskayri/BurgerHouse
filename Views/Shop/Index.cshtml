@@ -1,0 +1,76 @@
+﻿@model List<FlavorHouse.Models.Dessert>
+@{
+    ViewData["Title"] = "Shop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Burger Template">
+    <meta name="keywords" content="Burger, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Burger | Template</title>
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+    <!-- Shop Section Begin -->
+    <section class="shop spad">
+        <div class="container">
+            <div class="shop__option">
+                <div class="row">
+                    <div class="col-lg-7 col-md-7">
+                        <div class="shop__option__search">
+                            <form action="#">
+                                <select>
+                                    <option>Categories</option>
+                                    <option>Chicken Burger</option>
+                                    <option>Meat Burger</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                @{
+                    foreach (var item in Model)
+                    {
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg">
+                                    <div>
+                                        @if (item.Picture != " ")
+                                        {
+                                            <img style="width: 270px; height: 270px; box-sizing: border-box; display: block; " src="@item.Picture" />
+                                        }
+                                        else
+                                        {
+                                            <img style="max-width: 270px; height: 270px; box-sizing: border-box; display: block; " src="~/User/img/shop/noImage.jpg" />
+                                        }
+                                    </div>
+                                </div>
+                                <div class="product__item__text">
+                                    <h6><a href="#">@item.DessertName</a></h6>
+                                    <div class="product__item__price">@item.Price $</div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
+
+
